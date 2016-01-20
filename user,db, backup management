@@ -1,0 +1,25 @@
+1. create users and databases :
+
+  $su postgres
+   passoword
+  postgres$ createuser -D -P ramu ( -D flag is user cannot create database, -P is prompt for password)  for more createuser --help
+  postgres$ createdb -O ramu orders
+  
+  postgres$psql
+  postgres=# drop user ramu
+  postgres=#  drop database orders
+
+ 
+
+2 . backup and restore
+
+ use pg_dump utility to take a full backup of database 
+    $pg_dump -U username backupDB -f backupfile.sql
+
+3. $psql -U username -d newdatabase -f backupfile.sql
+
+ create a new database before restoring
+
+4. connecto a database using : postgres=# \c databasename
+
+
