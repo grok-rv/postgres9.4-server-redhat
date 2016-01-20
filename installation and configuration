@@ -1,0 +1,44 @@
+1. download repository and install it : 
+
+ $rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm
+ 
+  or yum install http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-redhat94-9.4-1.noarch.rpm
+
+2. do updates on ur system: $yum updates
+
+3. using the package management command, install the PostgreSQL 9.4 server, contribed module. 
+  
+   
+   $yum install postgresql94-server postgresql94-contrib
+
+    after installation, before enabling the postgres to run at boot, run the initdb command to initliaze db
+
+   $/usr/pgsql-9.4/bin/postgresql94-setup initdb
+
+
+4.  enable the PostgreSQL 9.4 server to run on system start and then start the database server.
+   
+   $systemctl enable postgresql-9.4.service : wil create a sym link ln -s '/usr/lib/systemd/system/postgresql-9.4.service' '/etc/systemd/system/multi-user.target.wants/postgresql-9.4.service'
+
+   $systemctl start postgresql-9.4.service 
+
+
+5. Check the status of selinux
+   
+   $sestatus
+
+  If so, run the command to allow external HTTP DB connections to 
+   the server through SELinux configuration.
+
+  # cat /etc/selinux/config
+
+ 
+  # setsebool -P httpd_can_network_connect_db 1
+  
+  
+6. also if the firewall is blocking then u have to open port 5432 for port connections with postgres
+
+7. setenforce 0 , will allow se current mode to permissive
+
+
+
