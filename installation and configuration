@@ -41,4 +41,4 @@
 7. setenforce 0 , will allow se current mode to permissive
 
 
-
+Source : http://www.postgresql.org/download/linux/redhat/#yum
