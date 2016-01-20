@@ -1,0 +1,25 @@
+1. change to  'postgres' user and run the 'psql' command to login to the prompt
+  
+  # su - postgres
+
+
+
+-bash-4.2$ psql
+ 
+
+postgres=# \password postgres
+
+Enter new password:
+
+Enter it again:
+
+postgres=# quit
+
+postgres-# \q
+
+-bash-4.2$ exit
+
+logout
+
+
+
